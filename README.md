@@ -27,7 +27,7 @@ Install your local version of Django:
 
 > -> pip install -e path/to/django
 
-Additionally, you can add this to your `requirements.txt` and then use `pip install requirements.txt`:
+Additionally, you can add this to your `requirements.txt` and then use `pip install -r requirements.txt`:
 
 > -> echo "-e ../django" >> requirements.txt
 
@@ -38,6 +38,8 @@ Make Django project to test whatever you need:
 > -> python manage.py startapp cakes
 
 > -> python manage.py migrate
+
+> -> python manage.py createsuperuser
 
 > -> python manage.py runserver
 
