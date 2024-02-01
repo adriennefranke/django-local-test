@@ -11,10 +11,15 @@ class Cake(models.Model):
 
     class Meta:
         constraints = [
+            models.CheckConstraint(
+                check=~Q(cake_flavor="Peanut Butter"),
+                name="no_peanut_butter_flavor",
+                violation_error_message="We cannot have Peanut Butter as a flavor due to allergies",
+            ),
             models.UniqueConstraint(
                 fields=("cake_flavor", "filling_flavor"),
                 name="uniq_cake_flavor_filling_flavor",
                 condition=Q(slices=8),
                 violation_error_message="Oh no! We already have this cake in 8 slices.",
-            )
+            ),
         ]
